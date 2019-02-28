@@ -12,7 +12,7 @@ import com.mmall.pojo.Category;
 import com.mmall.pojo.Product;
 import com.mmall.service.ICategoryService;
 import com.mmall.service.IProductService;
-import com.mmall.util.DateTimeUtils;
+import com.mmall.util.DateTimeUtil;
 import com.mmall.util.PropertiesUtil;
 import com.mmall.vo.ProductDetailVo;
 import com.mmall.vo.ProductListVo;
@@ -117,8 +117,8 @@ public class ProductServiceImpl implements IProductService {
         }else{
             productDetailVo.setParentCategoryId(category.getParentId());
         }
-        productDetailVo.setCreateTime(DateTimeUtils.dateToStr(product.getCreateTime()));
-        productDetailVo.setUpdateTime(DateTimeUtils.dateToStr(product.getUpdateTime()));
+        productDetailVo.setCreateTime(DateTimeUtil.dateToStr(product.getCreateTime()));
+        productDetailVo.setUpdateTime(DateTimeUtil.dateToStr(product.getUpdateTime()));
         return productDetailVo;
     }
 

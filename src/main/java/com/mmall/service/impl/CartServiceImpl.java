@@ -157,7 +157,7 @@ public class CartServiceImpl implements ICartService {
 
 
     public ServerResponse selectOrUnselect(Integer userId, Integer checked,Integer productId) {
-        cartMapper.checkeOrUncheckedProduct(userId, checked,productId);
+        cartMapper.checkedOrUncheckedProduct(userId, checked,productId);
         return this.list(userId);
     }
 
