@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class CookieUtil {
 
-    private final static String COOKIE_DOMAIN = ".izou.work";
+    private final static String COOKIE_DOMAIN = "izou.work";
     private final static String COOKIE_NAME = "login_token";
 
     public static void wirteLoginToken(HttpServletResponse response, String token) {
@@ -18,7 +18,8 @@ public class CookieUtil {
         ck.setDomain(COOKIE_DOMAIN);
         //代表设置在跟目录
         ck.setPath("/");
-
+        //防止脚本攻击
+        ck.setHttpOnly(true);
         //单位是秒
         //如果maxage不设置的花，cookie酒不会写入硬盘，而是写在内存，只在当前页面有效
         //-1为永久有效，0为删除（设置到response中后浏览器检测cookie为0后会将起移除）
