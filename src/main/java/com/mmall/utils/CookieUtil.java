@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class CookieUtil {
 
-    private final static String COOKIE_DOMAIN = ".izou.com";
+    private final static String COOKIE_DOMAIN = ".izou.work";
     private final static String COOKIE_NAME = "login_token";
 
     public static void wirteLoginToken(HttpServletResponse response, String token) {
