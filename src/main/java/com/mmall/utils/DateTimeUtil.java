@@ -1,4 +1,4 @@
-package com.mmall.util;
+package com.mmall.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -14,7 +14,7 @@ public class DateTimeUtil {
     //str->Date
     //Date->str
 
-    private static final String DEFAULTTIMEFORMAT="yyyy-MM-dd hh:mm";
+    public static final String DEFAULTTIMEFORMAT="yyyy-MM-dd hh:mm";
 
     public static Date strToDate(String dateTimeStr,String formateStr){
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(formateStr);

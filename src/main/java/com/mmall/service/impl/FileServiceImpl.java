@@ -2,7 +2,7 @@ package com.mmall.service.impl;
 
 import com.google.common.collect.Lists;
 import com.mmall.service.IFileService;
-import com.mmall.util.FTPUtil;
+import com.mmall.utils.FTPUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
