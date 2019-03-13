@@ -81,7 +81,7 @@ public class ProductManageController {
         }
     }
 
-    @RequestMapping(value = "list.do",method = RequestMethod.POST)
+    @RequestMapping(value = "list.do")
     @ResponseBody
     public ServerResponse getProductList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,@RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
