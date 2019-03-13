@@ -7,6 +7,7 @@ import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
 import com.mmall.utils.MD5Util;
+import com.mmall.utils.RedisPoolUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,7 +104,8 @@ public class UserServiceImpl implements IUserService {
         if(resultCount > 0){
             //说明答案是这个用户的并且正确
             String forgetToken = UUID.randomUUID().toString();
-            TokenCache.setKey(TokenCache.TOKEN_PREFIX+username,forgetToken);
+//            TokenCache.setKey(TokenCache.TOKEN_PREFIX+username,forgetToken);
+            RedisPoolUtil.setEx(Const.TOKEN_PREFIX+username,forgetToken,60*60*12);
             return ServerResponse.createBySuccess(forgetToken);
         }
         return ServerResponse.createByErrorMessage("问题的答案错误");
@@ -120,7 +122,8 @@ public class UserServiceImpl implements IUserService {
             return ServerResponse.createByErrorMessage(serverResponse.getMsg());
         }
 
-        String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX+username);
+//        String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX+username);
+        String token = RedisPoolUtil.get(Const.TOKEN_PREFIX+username);
         if(StringUtils.isNotBlank(token)){
             return ServerResponse.createByErrorMessage("token无效或者过期");
         }

@@ -5,6 +5,7 @@ import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
+
 import redis.clients.util.Hashing;
 import redis.clients.util.Sharded;
 
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * Created by geely
  */
+
 public class RedisShardedPool {
     private static ShardedJedisPool pool;//sharded jedis连接池
     private static Integer maxTotal = Integer.parseInt(PropertiesUtil.getProperty("redis.max.total","20")); //最大连接数
@@ -85,7 +87,6 @@ public class RedisShardedPool {
 
 //        pool.destroy();//临时调用，销毁连接池中的所有连接
         System.out.println("program is end");
-
 
     }
 }
